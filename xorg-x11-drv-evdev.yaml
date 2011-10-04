@@ -1,0 +1,31 @@
+Name: xorg-x11-drv-evdev
+Summary: Xorg X11 evdev input driver
+Version: 2.6.0
+Release: 0
+Group: System/X Hardware Support
+License: MIT
+URL: http://www.x.org/
+Description: The Xorg X11 evdev input driver
+Sources:
+    - http://xorg.freedesktop.org/releases/individual/driver/xf86-input-evdev-%{version}.tar.bz2
+Patches:
+    - xinput2-declare-left-button-label-for-touchscreens.patch
+
+Requires:
+    - xorg-x11-server-Xorg
+PkgConfigBR:
+    - xorg-server
+    - xkbfile
+    - xproto
+    - inputproto
+    - xrandr
+    - randrproto
+    - xextproto
+Configure: reconfigure
+Builder: make
+SubPackages: 
+    - Name: devel
+      Summary: Development files for xorg evdev driver
+      Group: Development/Libraries
+      Description: This package contains xorg evdev development files 
+

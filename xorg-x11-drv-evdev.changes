@@ -1,0 +1,64 @@
+* Tue May 03 2011 Li Peng <peng.li@intel.com> - 2.6.0
+- 2.6.0
+
+* Thu Mar 31 2011 Carsten Munk <carsten@maemo.org> - 2.4.99.901
+- Did a proper fix for BMC#14781, fixes BMC#15028 
+  (xorg-x11-drv-evdev doesn't declare Button Left label for
+   touchscreens even though it converts BTN_TOUCH into BTN_LEFT)
+  and removed old quirk. Please only accept in Trunk:Testing when
+  workaround in kernel for TSC2007 is removed (another submission). 
+  Fix agreed with Austin Zhang. Patch will enable ability for Xinput2
+  on ARM and fixes Xinput2 for all BTN_TOUCH-using touchscreens.
+
+* Mon Mar 28 2011 Austin Zhang  <austin.zhang@intel.com> - 2.4.99.901
+- Fixed BMC#14781, add quirk for make TSC2007 work with new xinput2.0 
+  in QT (also as part of BMC#12777)
+
+* Thu Aug 19 2010 Priya Vijayan <priya.vijayan@intel.com> - 2.4.99.901
+- Update to 2.4.99.901
+
+* Thu Apr 29 2010 Priya Vijayan <priya.vijayan@intel.com> - 2.4.0
+- Make devel package-fix rpmlint errors
+
+* Wed Apr 28 2010 Priya Vijayan <priya.vijayan@intel.com> - 2.3.2
+- Update to 2.4.0-with multitouch-subdevs
+
+* Fri Feb 05 2010 Li Peng <peng.li@intel.com> - 2.3.2
+- 2.3.2
+
+* Wed Oct 28 2009 Li Peng <peng.li@intel.com> - 2.3.0
+- 2.3.0
+
+* Thu Jul 30 2009 Peng Li <peng.li@intel.com> 2.2.3
+- update to 2.2.3
+
+* Fri Apr 03 2009 Peng Li <peng.li@intel.com> 2.2.1
+- update to 2.2.1
+
+* Mon Feb  2 2009 Yan Li <yan.i.li@intel.com> 2.1.2
+- update to 2.1.2
+
+* Tue Jan 20 2009 Peng Li <peng.li@intel.com> 2.1.1
+- update to 2.1.1
+
+* Mon Jan  5 2009 Yan Li <yan.i.li@intel.com> 2.1.0
+- Fix evdev XkbModel option parsing error
+
+* Sat Dec 20 2008 Peng Li <peng.li@intel.com> 2.1.0
+- Fix buildrequires
+
+* Fri Dec 19 2008 Arjan van de Ven <arjan@linux.intel.com> 2.1.0
+- Fix buildrequires
+
+* Fri Dec 19 2008 Peng Li <peng.li@intel.com> 2.1.0
+- update to 2.1.0
+
+* Tue Dec 16 2008 Anas Nashif <anas.nashif@intel.com> 2.0.5
+- Update spec file using latest spec-builder
+
+* Tue Dec 16 2008 Anas Nashif <anas.nashif@intel.com> 2.0.5
+- Update spec file using latest spec-builder
+
+* Fri Dec 12 2008 Peng Li <peng.li@intel.com> 2.0.5
+- use spec builder to reinit spec file
+

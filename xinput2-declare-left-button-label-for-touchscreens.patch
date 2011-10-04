@@ -1,0 +1,32 @@
+diff -ru xf86-input-evdev-2.4.99.901-orig/src/evdev.c xf86-input-evdev-2.4.99.901/src/evdev.c
+--- xf86-input-evdev-2.4.99.901-orig/src/evdev.c	2010-08-18 22:50:25.000000000 -0400
++++ xf86-input-evdev-2.4.99.901/src/evdev.c	2011-03-31 01:08:28.000000000 -0400
+@@ -1905,6 +1905,10 @@
+                     memset(pEvdev->old_vals, -1, sizeof(int) * pEvdev->num_vals);
+                 } else {
+                     xf86Msg(X_PROBED, "%s: Found absolute touchscreen\n", pInfo->name);
++                    if (!pEvdev->num_buttons)
++                    {
++                        pEvdev->num_buttons = 7; /* LMR + scroll wheels */
++                    }
+                     pEvdev->flags |= EVDEV_TOUCHSCREEN;
+                     pEvdev->flags |= EVDEV_BUTTON_EVENTS;
+                 }
+@@ -2460,6 +2464,15 @@
+         }
+     }
+ 
++    /* Since we convert BTN_TOUCH into BTN_LEFT we need to declare this label too */
++    if (pEvdev->flags & EVDEV_TOUCHSCREEN)
++    {
++        atom = XIGetKnownProperty(BTN_LABEL_PROP_BTN_LEFT);
++        if (atom)
++        {
++            atoms[EvdevUtilButtonEventToButtonNumber(pEvdev, BTN_LEFT) - 1] = atom;
++        }
++    }              
+     /* wheel buttons, hardcoded anyway */
+     if (natoms > 3)
+         atoms[3] = XIGetKnownProperty(BTN_LABEL_PROP_BTN_WHEEL_UP);
+Only in xf86-input-evdev-2.4.99.901/src: evdev.c~
+Only in xf86-input-evdev-2.4.99.901/src: evdev.c.orig
